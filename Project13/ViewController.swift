@@ -65,6 +65,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func importPicture() {
+        imageView.alpha = 0
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
@@ -95,6 +96,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
             let processedImage = UIImage(cgImage: cgimg)
             self.imageView.image = processedImage
+            self.imageView.alpha = 1
         }
     }
     
